@@ -13,4 +13,3 @@ const sum = euros.reduce((valorAnterior, valorActual) => valorAnterior + valorAc
 const prom = sum/euros.length;
 
 console.log(`sum: ${sum} prom: ${prom}`);
-
