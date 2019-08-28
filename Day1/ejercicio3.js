@@ -51,4 +51,3 @@ class Toyota extends Auto {
 
 const toyota = new Toyota("Vagoneta", 2019, true, "Toyota praus");
 console.log(toyota.toString());
-
