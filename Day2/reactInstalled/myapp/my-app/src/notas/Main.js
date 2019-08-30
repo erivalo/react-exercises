@@ -9,13 +9,13 @@ class Main extends React.Component {
     this.state = {
       notas
     };
+    this.guardarItem = this.guardarItem.bind(this);
   }
 
-  eliminarItem(index) {
-    console.log(index, typeof index);
-    console.log("old notas", this.state.notas);
+  eliminarItem = (index) => {
+    console.log("Old notas=> ", this.state.notas, index);
     const newNotas = this.state.notas.filter(item => item.id !== index.toString());
-    console.log("New notas", newNotas);
+    console.log("New NOTAS=> ", newNotas);
     this.setState({
       notas: newNotas
     });
@@ -38,7 +38,7 @@ class Main extends React.Component {
       return(
         <div className="col-md-4" key={i}>
           <div className="card mt-4">
-            <div className="card-title text-center" onclick={this.editarItem.bind(this, todo.id)}>
+            <div className="card-title text-center" onclick={this.editItem.bind(todo.id)}>
               <h3>{todo.titulo}</h3>
               <span className="badge badge-pill badge-danger ml-2">
                 {todo.prioridad}
