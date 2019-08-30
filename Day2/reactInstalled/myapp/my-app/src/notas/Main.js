@@ -1,5 +1,6 @@
 import React from 'react';
 import { notas } from '../notas';
+import Formulario from './Formulario';
 
 class Main extends React.Component {
   constructor(context, props) {
@@ -19,19 +20,35 @@ class Main extends React.Component {
       notas: newNotas
     });
   }
+
+  guardarItem(objeto) {
+    console.log("llego el objeto");
+    console.log(objeto);
+    this.setState({
+      notas: [...this.state.notas, objeto]
+    });
+  }
+
+  editItem(index) {
+
+  }
   
   render() {
     const listaDeCards = this.state.notas.map((todo, i) => {
       return(
         <div className="col-md-4" key={i}>
           <div className="card mt-4">
-            <div className="card-title text-center">
+            <div className="card-title text-center" onclick={this.editarItem.bind(this, todo.id)}>
               <h3>{todo.titulo}</h3>
               <span className="badge badge-pill badge-danger ml-2">
                 {todo.prioridad}
               </span>
             </div>
             <div className="card-body">
+              {todo.responsable}
+            </div>
+            <div className="card-body">
+              {todo.descripcion}
             </div>
             <div className="card-footer">
               <button className="btn btn-danger" onClick={this.eliminarItem.bind(this, todo.id)}>
@@ -45,7 +62,19 @@ class Main extends React.Component {
     });
     
 
-    return listaDeCards;
+    return(
+      <div>
+        {listaDeCards}
+        <div className="col-md-a">
+          <h3>Formulario</h3>
+          <Formulario
+          guardarItem={(e) => this.guardarItem(e)}></Formulario>
+        </div>
+      </div>
+      );
+
+      
+      
   }
 }
 
