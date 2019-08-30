@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            // let h2= React.createElement('h2', { id: 'headling2' }, 'Second React element');
+            // ReactDOM.render(h2, document.getElementById('root'));
+            // let h2 = <h2>titulo 2</h2>;
+            // ReactDOM.render(
+            //     <div>
+            //         <h1>Titulo</h1>
+            //         {h2}
+			//     </div>, document.getElementById('root'));
+			// class Frutas extends React.Component {
+			// 	render() {
+			// 		let fruit_item = "manzana";
+
+			// 		return (<div>
+			// 			<ul className="list">
+			// 				<li className="item">Mango</li>
+			// 				<li className="item">Platano</li>
+			// 				<li className="item">{fruit_item}</li>
+			// 			</ul>
+			// 		</div>);
+			// 	}
+			// }
+
+			// ReactDOM.render(<Frutas/>, document.getElementById("root"));
+			class Enlace extends React.Component {
+
+				render() {
+					return (
+						<div>
+							<a className="link" href={this.props.url} title={this.props.title} style={{ color: this.props.style }}>Link</a>
+						</div>
+					)
+				}
+			}
+
+			ReactDOM.render(<Enlace url="http://google.com.bo" title="lalalalala" style="green"/>, document.getElementById("root"));
+        </script>
+    </body>
+</html>
